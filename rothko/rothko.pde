@@ -26,7 +26,6 @@ void draw(){
   origin = new PVector(random(10,width-10),random(10,height-10));
   i = 0;
   horizontal++;
-  filter(BLUR, 2);
  }
  
  if (horizontal == 5){

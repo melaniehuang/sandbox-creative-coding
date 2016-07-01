@@ -1,7 +1,7 @@
 PImage img;
 
 void setup(){
-  size(1000,1000);
+  size(1200,900);
   img = loadImage("sprite.png");
 }
 
@@ -12,3 +12,6 @@ void draw(){
   float randSize = random(600, 1000);
   image(img, randW, randH, randSize, randSize);
 }
+
+//Aesthetic of code
+//Processing, LCDs, vinyl prints

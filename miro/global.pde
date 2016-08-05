@@ -1,0 +1,11 @@
+PImage donut;
+PImage drumstick;
+color c1 = color(38,115,202);
+color c2 = color(89,185,236);
+color eColor = color(24,26,28); 
+color sColor = color(232,32,9); 
+color lColor = color(24,26,28);
+color c3 = color(136,210,204);
+color c4 = color(58,178,170);
+color eColor2 = color(230,255,100); 
+color sColor2 = color(255,196,200); 

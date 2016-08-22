@@ -2,7 +2,6 @@ class Mover {
   PVector location;
   PVector velocity;
   PVector acceleration;
-  float ellipseSize = 100;
   
   Mover() {
     location = new PVector(width/2, height/2);
@@ -36,7 +35,6 @@ class Mover {
   
   void display(){
     noStroke();
-    fill(230,255,10,100);
     ellipse(location.x, location.y, ellipseSize, ellipseSize);
   }
 }

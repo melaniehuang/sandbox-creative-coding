@@ -3,7 +3,7 @@
 Mover mover;
 
 void setup(){
-  size(displayWidth, displayHeight);
+  size(displayWidth, displayHeight, P2D);
   background(10,255,255);
   mover = new Mover();
 }

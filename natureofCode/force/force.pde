@@ -24,13 +24,22 @@ void draw() {
     //m.applyForce(wind);      
     
     //Let's apply friction!
+    //if (mousePressed){
+    //  PVector friction = m.velocity.get();
+    //  friction.normalize();
+    //  friction.mult(-1);
+    //  float c = 0.3;
+    //  friction.mult(c);
+    //  m.applyForce(friction);
+    //}
+    
     if (mousePressed){
-      PVector friction = m.velocity.get();
-      friction.normalize();
-      friction.mult(-1);
-      float c = 0.3;
-      friction.mult(c);
-      m.applyForce(friction);
+      PVector drag = m.velocity.get();
+      drag.normalize();
+      float cD = -0.003;
+      float speed = m.velocity.mag();
+      drag.mult(cD*speed*speed);
+      m.applyForce(drag);
     }
     
     m.update();

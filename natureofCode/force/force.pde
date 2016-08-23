@@ -1,38 +1,40 @@
-Mover mover;
-float ellipseSize = 100;
-int a = 230;
+Mover[] movers;
+float ellipseSize = 20;
 
-void setup(){
-  size(1200,800,P2D);
-  background(10,255,255);
-  fill(230,255,10,100);
-  mover = new Mover();
+void setup() {
+  size(1200, 800, P2D);
+  background(10, 255, 255);
+  fill(230, 255, 10, 100);
+  movers = new Mover[5];
+  
+  for (int i = 0; i < movers.length; i++) {
+    movers[i] = new Mover();
+  }
 }
 
-void draw(){  
-  //background(10,255,255);
+void draw() {  
+  background(10, 255, 255);
 
-  PVector gravity = new PVector(0,0.05);
-  mover.applyForce(gravity);
+  for (Mover m: movers){
+    PVector gravity = new PVector(0, 0.3);
+    gravity.mult(m.mass);
+    m.applyForce(gravity);
+        
+    //PVector wind = new PVector(0.5, 0);
+    //m.applyForce(wind);      
     
-  if (mousePressed){
-    PVector wind = new PVector(0.1,0.05);
-    mover.applyForce(wind);
-    a--;
-    ellipseSize++;
-  } else {
-     ellipseSize--;
+    //Let's apply friction!
+    if (mousePressed){
+      PVector friction = m.velocity.get();
+      friction.normalize();
+      friction.mult(-1);
+      float c = 0.3;
+      friction.mult(c);
+      m.applyForce(friction);
+    }
+    
+    m.update();
+    m.edges();
+    m.display();  
   }
-  
-  fill(a,100,255,100);
-  println(a);
-  
-  if (a == 0){
-   a = 255;
-  }
-  
-  mover.update();
-  mover.edges();
-  mover.display();
-  
 }

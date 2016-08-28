@@ -4,17 +4,11 @@ class Particle {
   PVector acceleration;
   float lifespan;
   
-  Particle(PVector l){
-    acceleration = new PVector(0.001,0.04);
-    velocity = new PVector(random(-1,1),random(-2,0));
-    location = l.get();
-   
-    lifespan = 255;
-  }
-  
-  void run(){
-    update();
-    display();
+  Particle(){
+    acceleration = new PVector(0.004,0.02);
+    velocity = new PVector(random(-1,1),random(-1.5,0));
+    location = new PVector(width/2,200);
+    lifespan = random(255);
   }
   
   void update(){

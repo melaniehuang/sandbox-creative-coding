@@ -5,10 +5,14 @@ class Particle {
   float lifespan;
   
   Particle(PVector l){
-    acceleration = new PVector(0.004,0.02);
-    velocity = new PVector(random(-1,1),random(-1.5,0));
+    acceleration = new PVector(0,-0.01);
+    velocity = new PVector(random(-0.1, 0.1),0.001);
     location = l.get();
-    lifespan = random(255);
+    lifespan = random(100,150); 
+  }
+  
+  void applyForce(PVector f){
+    acceleration.add(f);
   }
   
   void update(){
@@ -19,15 +23,12 @@ class Particle {
   
   void display(){
     noStroke();
-    fill(255,237,0,lifespan);
-    ellipse(location.x,location.y,10,10);
+    fill(255,lifespan);
+    float eSize = map(lifespan, 0, 150, 40, 60); 
+    ellipse(location.x,location.y, eSize, eSize);
   }
   
   boolean isDead(){
-    if (lifespan < 0){
-      return true;
-    } else {
-      return false;
-    }
+    return lifespan < 0;
   }
 }

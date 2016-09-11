@@ -3,16 +3,17 @@ class ParticleSystem {
   PVector origin;
   
   ParticleSystem(){
-    origin = new PVector(width/2, 50);
+    origin = new PVector(width/2,height - 100);
     particles = new ArrayList<Particle>();
   }
-  
+   
   void addParticle(){
-    float r = random(1);
-    if (r < 0.5){ 
-      particles.add(new Particle(origin));
-    } else {    
-      particles.add(new StarParticle(origin));
+    particles.add(new Particle(origin));
+  }
+  
+  void applyForce(PVector force){
+    for (Particle p: particles){
+     p.applyForce(force);  
     }
   }
   
